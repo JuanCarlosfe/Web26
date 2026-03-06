@@ -1,3 +1,4 @@
+
 :root {
     --glass: rgba(255, 255, 255, 0.4);
     --glossy-blue: linear-gradient(to bottom, #7abcff 0%, #4096ee 50%, #115799 100%);
@@ -14,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 
 header {
     width: 100%;
@@ -81,7 +83,6 @@ header {
 .submenu-items { display: none; background: rgba(200, 240, 255, 0.5); }
 #submenu-toggle:checked ~ .submenu-items { display: block; }
 
-
 .hero, .container {
     padding: 60px 20px;
     text-align: center;
@@ -99,7 +100,6 @@ header {
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-
 .table-container {
     overflow-x: auto;
     border-radius: 20px;
@@ -110,7 +110,6 @@ header {
 table { width: 100%; border-collapse: collapse; }
 th { background: var(--glossy-blue); color: white; padding: 15px; }
 td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); }
-
 
 .btn-back {
     display: inline-block;
@@ -196,3 +195,4 @@ td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); }
         }
 
         .info-item b { color: #0078d7; }
+
