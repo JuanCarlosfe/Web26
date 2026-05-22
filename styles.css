@@ -1,0 +1,572 @@
+/* --- Variables de Color y Reset --- */
+:root {
+    --primary-glow: #00d2ff;
+    --secondary-glow: #3aff78;
+    --bg-gradient: linear-gradient(135deg, #0055ff 0%, #00bcff 50%, #3aff78 100%);
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text-dark: #002b49;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e6f7ff;
+    color: var(--text-dark);
+    background-image: radial-gradient(at 0% 0%, rgba(58, 255, 120, 0.2) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(0, 210, 255, 0.3) 0px, transparent 50%);
+}
+
+/* --- Componentes Reutilizables --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Efecto de plástico brillante / Cristal de los 2000 */
+.card-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 120, 255, 0.15),
+                inset 0 4px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Botón Glossy (Brillante) característico */
+.btn-glossy {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(to bottom, #00d2ff 0%, #0072ff 50%, #0055cc 100%);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 1px solid #00aaff;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4),
+                inset 0 3px 5px rgba(255, 255, 255, 0.6);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn-glossy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6),
+                inset 0 4px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* --- Menú de Navegación --- */
+.main-header {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0055ff;
+}
+
+.logo-accent {
+    color: #00cc66;
+    text-shadow: 0 0 8px rgba(0,204,102,0.4);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    background: rgba(0, 210, 255, 0.15);
+    color: #0055ff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- Sección Hero --- */
+.hero-section {
+    background: var(--bg-gradient);
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simulación de reflejo de aurora/burbuja de fondo */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    transform: rotate(-5deg);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,43,73,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* --- Secciones de Contenido --- */
+.info-section {
+    padding: 60px 0;
+}
+
+.info-section h2 {
+    color: #0055ff;
+    margin-bottom: 15px;
+}
+
+/* --- Sección de Contacto --- */
+.contact-section {
+    background: rgba(230, 247, 255, 0.5);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.contact-section h2 {
+    margin-bottom: 10px;
+    color: #0055ff;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 114, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-dark);
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #00d2ff;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+}
+
+/* --- Footer --- */
+.main-footer {
+    background: #002b49;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid #3aff78;
+}
+
+/* --- ESTILOS ADICIONALES PARA EL CATÁLOGO --- */
+
+.catalog-hero {
+    background: linear-gradient(135deg, #00bcff 0%, #3aff78 100%);
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+    box-shadow: inset 0 -10px 20px rgba(255,255,255,0.3);
+}
+
+.catalog-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 43, 73, 0.2);
+}
+
+/* Cuadrícula flexible para las habitaciones */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    padding: 20px 0;
+}
+
+/* Tarjeta Frutiger Aero (Efecto burbuja / plástico inflado) */
+.room-card {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 120, 255, 0.1),
+                inset 0 4px 6px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 180, 255, 0.25),
+                inset 0 4px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Contenedor de imagen */
+.room-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* Colores de fondo temporales simulando la vibración Aero (Usa imágenes reales en el futuro) */
+.room-image-placeholder {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.suite-aqua { background: linear-gradient(45deg, #0055ff, #00d2ff); }
+.suite-biosphere { background: linear-gradient(45deg, #00bcff, #3aff78); }
+.suite-stratus { background: linear-gradient(45deg, #7000ff, #00d2ff); }
+
+.room-card:hover .room-image-placeholder {
+    transform: scale(1.05);
+}
+
+/* Etiquetas flotantes brillantes */
+.room-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(to bottom, #3aff78, #00cc66);
+    color: #003311;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 4px 10px rgba(0,204,102,0.3);
+}
+
+.room-tag.VIP {
+    background: linear-gradient(to bottom, #ffea00, #ffaa00);
+    color: #4a3c00;
+    box-shadow: 0 4px 10px rgba(255,170,0,0.3);
+}
+
+/* Información de la tarjeta */
+.room-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que todas las tarjetas midan lo mismo de alto */
+}
+
+.room-info h3 {
+    font-size: 1.3rem;
+    color: #0055ff;
+    margin-bottom: 10px;
+}
+
+.room-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #33536b;
+    margin-bottom: 20px;
+}
+
+/* Características / Iconos flotantes */
+.room-features {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.room-features span {
+    background: rgba(0, 188, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0066cc;
+    border: 1px solid rgba(0, 188, 255, 0.2);
+}
+
+/* Parte baja: Precio y Acción */
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Empuja el footer al fondo de la tarjeta */
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+.room-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #002b49;
+}
+
+.room-price small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #7799bb;
+}
+
+/* Ajuste de botón para tarjetas */
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* --- ESTILOS PARA EL PANEL DE ADMINISTRACIÓN (CRUD) --- */
+
+.admin-header {
+    border-bottom: 2px solid var(--primary-glow);
+}
+
+.badge-admin {
+    background: #ff5500;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    vertical-align: middle;
+    text-shadow: none;
+}
+
+.logout-link {
+    color: #ff3b30 !important;
+}
+
+.admin-title {
+    color: #0055ff;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.admin-subtitle {
+    font-size: 0.95rem;
+    color: #557799;
+    margin-bottom: 25px;
+}
+
+/* Grilla del Formulario */
+.admin-form-section {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todo el ancho de la fila */
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid rgba(0, 114, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #00bcff;
+    box-shadow: 0 0 8px rgba(0, 188, 255, 0.4);
+}
+
+.form-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-secondary {
+    background: rgba(0,0,0,0.05);
+    color: #33536b;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+/* --- TABLA DE INVENTARIO (CRUD) --- */
+.table-section {
+    margin-bottom: 60px;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Permite scroll horizontal si la pantalla es muy chica */
+    margin-top: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: left;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.admin-table th {
+    background: linear-gradient(to bottom, #00bcff, #0088ff);
+    color: white;
+    font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(58, 255, 120, 0.08); /* Fila se ilumina en verde claro Aero */
+}
+
+/* Previsualización en miniatura de la imagen */
+.table-img-preview {
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Badges de Estado */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.status-badge.disponible { background: #ccffdd; color: #006622; }
+.status-badge.alert { background: #fff3cd; color: #856404; }
+
+/* Botones de acción rápidos dentro de la tabla */
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.1s;
+}
+
+.btn-action:active { transform: scale(0.95); }
+
+.btn-action.edit {
+    background: #e1f5fe;
+    color: #0288d1;
+    border-color: #b3e5fc;
+}
+.btn-action.edit:hover { background: #b3e5fc; }
+
+.btn-action.delete {
+    background: #ffebee;
+    color: #c62828;
+    border-color: #ffcdd2;
+}
+.btn-action.delete:hover { background: #ffcdd2; }
+
+/* --- Botones de Filtro Dinámico (jQuery) --- */
+.btn-filter {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 188, 255, 0.3);
+    padding: 10px 22px;
+    margin: 0 5px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #0055ff;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover, .btn-filter.active {
+    background: linear-gradient(to bottom, #00d2ff, #0072ff);
+    color: white;
+    border-color: #0072ff;
+    box-shadow: 0 4px 12px rgba(0, 114, 255, 0.3), inset 0 2px 3px rgba(255,255,255,0.4);
+}

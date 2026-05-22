@@ -3,44 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aero Vista Hotel</title>
-    <link rel="stylesheet" href="style.css">
-   
+    <title>AeroHaven Hotel - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">Aero Vista</div>
-        
-        <div class="nav-wrapper">
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="btn-menu">Menú ▾</label>
-
-            <div class="menu-content">
-                <a href="index.html">Inicio</a>
-                <a href="Catalogo.html">Catálogo</a>
-                
-                <input type="checkbox" id="submenu-toggle">
-                <label for="submenu-toggle" class="submenu-label">Acerca del hotel ▸</label>
-                
-                <div class="submenu-items">
-                    <a href="Mision.html">Misión</a>
-                    <a href="Vision.html">Visión</a>
-                    <a href="Contacto.html">Contacto</a>
-                </div>
-                <a href="gestion.html" style="background: rgba(0, 120, 215, 0.1);"><b>Gestión</b></a>
-            </div>
+    <!-- Encabezado y Navegación -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-accent">Aero</span>Haven
         </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+
+                <li><a href="login.php" style="background: rgba(0, 210, 255, 0.2); padding: 5px 10px; border-radius: 5px; border: 1px solid var(--primary-glow);">Acceso Sistema</a></li>
+                
+            </ul>
+        </nav>
     </header>
 
-    <main class="hero">
-        <div class="card">
-            <h1>Bienvenido a nuestro Hotel Aero Vista</h1>
-            <p>Disfruta de la experiencia acuática y cristalina de nuestro resort diseñado bajo la estética del futuro del 2008.</p>
+    <!-- Sección Hero (Bienvenida) -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-content">
+            <h1>Bienvenidos al Confort del Futuro</h1>
+            <p>Experimenta la frescura, la tecnología y el descanso en un entorno único.</p>
+            <a href="catalogo.php" class="btn-glossy">Explorar Habitaciones</a>
         </div>
-    </main>
-    <footer style="margin-top: auto; padding: 20px; text-align: center; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.7); color: #005a9e; font-size: 0.9rem;">
-        © 2026 Aero Vista Hotel. Todos los derechos reservados.
+    </section>
+
+    <!-- Sección Misión y Visión -->
+    <section id="nosotros" class="info-section">
+        <div class="container grid-2">
+            <div class="card-glass">
+                <h2>Nuestra Misión</h2>
+                <p>Ofrecer una experiencia de hospedaje de vanguardia que combine la frescura de la naturaleza con la innovación tecnológica, garantizando el máximo confort y un servicio impecable para nuestros huéspedes.</p>
+            </div>
+            <div class="card-glass">
+                <h2>Nuestra Visión</h2>
+                <p>Ser la cadena de hoteles flotantes e inteligentes referente a nivel global para el año 2030, reconocidos por nuestra estética bio-tecnológica, sostenibilidad ambiental y sistemas de automatización orgánica.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Ponte en Contacto</h2>
+            <p>¿Tienes dudas o quieres hacer una reservación especial? Escríbenos.</p>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="Tu Nombre" required>
+                <input type="email" placeholder="Tu Correo Electrónico" required>
+                <textarea placeholder="¿En qué podemos ayudarte?" rows="5" required></textarea>
+                <button type="submit" class="btn-glossy">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 AeroHaven Hotel. Todos los derechos reservados.</p>
+            
+            <!-- Bloque del Validador -->
+            <div class="w3c-validator">
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="https://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="¡CSS Válido!" />
+                </a>
+            </div>
+        </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tu propio archivo de lógica dinámica -->
+    <script src="main.js"></script>
 </body>
 </html>
