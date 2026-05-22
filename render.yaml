@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: aerohaven
+    runtime: php
+    buildCommand: ""
+    startCommand: apache2-foreground
